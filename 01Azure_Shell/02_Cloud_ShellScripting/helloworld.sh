@@ -32,13 +32,11 @@ do
     fi
 done
 
-echo "type 'Cats'"
+echo "type 'I Love Cats'"
 read response
-if [ $response == "Cats" ]
+if [ "$response" == "I Love Cats" ]
 then
     echo "Thank you for professing your undying love for cats"
 else
     echo "How can you not like cats"
 fi
-
-#

@@ -2,7 +2,7 @@
 Work through [Describe the core architectural components of Azure](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/) and define following terms and Azure services.
 ### Define the following terms:
 - Region
-- Azure Datacenters
+- Azure Data centers
 - Availability Zone
 - Region Pairs
 - Resource Groups

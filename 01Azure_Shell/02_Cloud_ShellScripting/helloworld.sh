@@ -3,6 +3,8 @@
 
 #variable
 #cannot have spaces around =
+# name="Auryn"
+
 # echo "What is your name?"
 # take input from the console and assign the value to name
 # read name

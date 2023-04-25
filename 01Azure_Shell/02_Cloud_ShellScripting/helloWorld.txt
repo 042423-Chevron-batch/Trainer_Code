@@ -1,0 +1,15 @@
+hello world!
+## Exercise: Grade Calculator
+Given a score between 0 and 100, determine the letter grade for it. Use the following metric to assign grades:
+- A: 90~100
+- B: 80~89
+- C: 70~79
+- D: 60~69
+- F: 0~60
+Additionally, ask the user if they want to continue using the calculator, and repeat the conversion as long as they want.
+
+### Stretch Goals
+- Have a way to accept multiple scores at once
+	- Output not just the grades, but also mean, median, and min/max of the grade collection
+	- Accept a file with a flag/option
+	- Save the result to a file

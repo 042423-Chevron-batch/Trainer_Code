@@ -7,6 +7,8 @@ Given a score between 0 and 100, determine the letter grade for it. Use the foll
 - F: 0~60
 Additionally, ask the user if they want to continue using the calculator, and repeat the conversion as long as they want.
 
+Please add this script file to your first-last-code repository, and push the code to github repo.
+
 ### Stretch Goals
 - Have a way to accept multiple scores at once
 	- Output not just the grades, but also mean, median, and min/max of the grade collection

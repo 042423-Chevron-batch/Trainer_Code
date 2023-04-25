@@ -10,7 +10,7 @@
 # read name
 
 # script arguments
-#$0 $1 $2 $3...
+# $0 $1 $2 $3...
 
 # echo "hello, $1!"
 

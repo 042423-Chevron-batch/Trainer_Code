@@ -2,7 +2,7 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ "prepwork" ]
+    branches: [ "main", "prepwork" ]
   workflow_dispatch:
 
 jobs:

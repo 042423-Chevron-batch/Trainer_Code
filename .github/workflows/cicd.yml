@@ -8,6 +8,8 @@ on:
 jobs:
 
   build:
+    env:
+      Working_Dir: ./HelloWorld
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -15,6 +17,6 @@ jobs:
       with:
         fetch-depth: 0
     - name: Build and Publish
-      run: dotnet publish -configuration Release -o distribution
+      run: dotnet publish ${{ env.Working_Dir }} -configuration Release -o distribution
     - name: Sanity Check?
       run: ls

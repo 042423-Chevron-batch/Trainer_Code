@@ -2,9 +2,9 @@
 For this project, you will be writing an interactive project using shell scripting.
 
 ## Due : May 1, 2023 
-Project completion will be demonstrated via the following ways: show and tell in front of the trainers and peers and code committed and pushed to github repository for code review.
+Project completion will be demonstrated via the following ways: show and tell with *live demo* in front of the trainers and peers and code committed and pushed to github repository for code review.
 
-## Requirement
+## Requirement (MVP)
 - Project will be written in either bash or powershell
 - Project will be version controlled, aka, be a part of a git repository. It should also be frequently committed/pushed to the remote repository in our github organization. (This means more than 2 commits (not this: initial commit -> project done!))
 - The project should have be able to receive user inputs and change the behavior accordingly

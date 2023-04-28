@@ -1,4 +1,4 @@
-name: .NET Core Desktop
+name: .NET CICD
 
 on:
   push:
@@ -17,6 +17,6 @@ jobs:
       with:
         fetch-depth: 0
     - name: Build and Publish
-      run: dotnet publish ${{ env.Working_Dir }} -configuration Release -o distribution
+      run: dotnet publish ${{ env.Working_Dir }} --configuration Release -o distribution
     - name: Sanity Check?
       run: ls

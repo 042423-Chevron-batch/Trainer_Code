@@ -7,9 +7,10 @@
 - User loses the game if they run out of lives
 
 ## Objective
-Create a hangman game with C# Console Application with a partner
-You'll pair program this together 
-
+- Create a hangman game with C# Console Application with a partner
+- You'll pair program this together
+- Deploy this to your azure virtual machine and run from it
+ 
 ### Pairs:
 Ishmael - Jvon
 Daniel Obiri - Avery

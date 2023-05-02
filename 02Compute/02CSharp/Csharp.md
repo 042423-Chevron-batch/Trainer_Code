@@ -14,3 +14,15 @@ It is a strongly typed, object oriented language by Microsoft. It is one of the 
 ## Commonly Used .NET SDK Commands
 - `dotnet new console -n MyApp`
     - to create a new console application with the name "MyApp"
+- `dotnet run`
+    - to restore/build/run your program in debug configuration 
+- `dotnet publish`
+    - restores, and builds deployable artifacts for deploying to different machines
+    - ex: `dotnet publish -c Release -o MyApp`
+
+
+## Steps to deploy your .NET Application
+1. Get artifacts for your application via `dotnet publish` command
+2. move those artifacts to your VM via scp
+3. Make sure your vm has dotnet sdk
+4. run the .dll file via `dotnet path-to-dll`

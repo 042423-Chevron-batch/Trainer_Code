@@ -460,23 +460,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MarkC\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\MinseonSong\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MarkC\\Desktop\\AllBatchFiles\\04232023_BatchFiles\\Trainer_Code\\TemplateApi\\TemplateApi.csproj",
+      "projectUniqueName": "C:\\Users\\MinseonSong\\Revature\\230424Chevron\\Trainer_Code\\TemplateApi\\TemplateApi.csproj",
       "projectName": "TemplateApi",
-      "projectPath": "C:\\Users\\MarkC\\Desktop\\AllBatchFiles\\04232023_BatchFiles\\Trainer_Code\\TemplateApi\\TemplateApi.csproj",
-      "packagesPath": "C:\\Users\\MarkC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MarkC\\Desktop\\AllBatchFiles\\04232023_BatchFiles\\Trainer_Code\\TemplateApi\\obj\\",
+      "projectPath": "C:\\Users\\MinseonSong\\Revature\\230424Chevron\\Trainer_Code\\TemplateApi\\TemplateApi.csproj",
+      "packagesPath": "C:\\Users\\MinseonSong\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MinseonSong\\Revature\\230424Chevron\\Trainer_Code\\TemplateApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\MarkC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MinseonSong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -530,7 +526,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

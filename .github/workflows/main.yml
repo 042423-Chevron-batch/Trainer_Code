@@ -17,7 +17,12 @@ jobs:
     steps:
     - name: say hello
       run: echo "Hello, World!"
+
     - name: checkout git repo
       uses: actions/checkout@v3
+
     - name: Make sure it builds
-      run: dotnet build TemplateApi
+      run: dotnet build WorkoutTracker/API
+
+    - name: Unit Test
+      run: dotnet test WorkoutTracker/Tests

@@ -8,7 +8,7 @@ https://www.atlassian.com/devops
 ## CI/CD
 - CI: Continuous Integration
     - Let's continuously integrate newly written code to our main/dev branch w/o all manual review
-    - Automate build, test, code quality check 
+    - Automate build, test, code quality check  sdvawed
 
 - CD - Deployment to Production "let's automate deploy process"
     - Continuous Delivery

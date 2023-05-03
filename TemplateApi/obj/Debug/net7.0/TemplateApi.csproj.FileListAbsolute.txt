@@ -64,3 +64,8 @@ C:\Users\MinseonSong\Revature\230424Chevron\Trainer_Code\TemplateApi\obj\Debug\n
 C:\Users\MinseonSong\Revature\230424Chevron\Trainer_Code\TemplateApi\obj\Debug\net7.0\TemplateApi.pdb
 C:\Users\MinseonSong\Revature\230424Chevron\Trainer_Code\TemplateApi\obj\Debug\net7.0\TemplateApi.genruntimeconfig.cache
 C:\Users\MinseonSong\Revature\230424Chevron\Trainer_Code\TemplateApi\obj\Debug\net7.0\ref\TemplateApi.dll
+C:\Users\MinseonSong\Revature\230424Chevron\Trainer_Code\TemplateApi\bin\Debug\net7.0\dist\web.config
+C:\Users\MinseonSong\Revature\230424Chevron\Trainer_Code\TemplateApi\bin\Debug\net7.0\dist\appsettings.Development.json
+C:\Users\MinseonSong\Revature\230424Chevron\Trainer_Code\TemplateApi\bin\Debug\net7.0\dist\appsettings.json
+C:\Users\MinseonSong\Revature\230424Chevron\Trainer_Code\TemplateApi\bin\Debug\net7.0\dist\TemplateApi.deps.json
+C:\Users\MinseonSong\Revature\230424Chevron\Trainer_Code\TemplateApi\bin\Debug\net7.0\dist\TemplateApi.runtimeconfig.json

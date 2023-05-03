@@ -10,6 +10,11 @@ namespace TemplateApi.Controllers
     [Route("api/[controller]")]
     public class JunipersController : ControllerBase
     {
+        [HttpGet]
+        public string Greet(string? name) {
+            return $"Hello {name}!";
+        }
+
         /// <summary>
         /// This Get method will return a hard-coded collection of chars.
         /// </summary>

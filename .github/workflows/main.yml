@@ -1,0 +1,17 @@
+name: Starter Pipeline
+
+# This on clause specifies which event this pipeline/workflow will run
+on: 
+  push: 
+    branches: ["main"] #run whenever there is a push event to main branch
+  pull_request:
+    branches: ["main"] # run whenever there is a pull request to main branch
+  workflow_dispatch: # you can manually trigger this workflow
+  
+jobs:
+# This is a job that grabs ubuntu VM and runs "echo 'Hello, World!'"
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+    - name: say hello
+      run: echo "Hello, World!"

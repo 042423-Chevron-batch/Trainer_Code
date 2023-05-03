@@ -14,6 +14,8 @@ jobs:
 # This is a job that grabs ubuntu VM and runs "echo 'Hello, World!'"
   greet:
     runs-on: ubuntu-latest
+    env:
+      WORKING_DIR: WorkoutTracker
     steps:
     - name: say hello
       run: echo "Hello, World!"
@@ -22,7 +24,13 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Make sure it builds
-      run: dotnet build WorkoutTracker/API
+      run: dotnet build ${{ env.WORKING_DIR }}/API
 
     - name: Unit Test
-      run: dotnet test WorkoutTracker/Tests
+      run: dotnet test ${{ env.WORKING_DIR}}/Tests
+  another_job:
+    runs-on: windows-latest
+    needs: greet
+    steps:
+    - name: run some powershell
+      run: List-ChildItem

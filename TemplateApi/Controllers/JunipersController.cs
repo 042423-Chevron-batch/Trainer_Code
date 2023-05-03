@@ -12,7 +12,7 @@ namespace TemplateApi.Controllers
     {
         [HttpGet]
         public string Greet(string? name) {
-            return $"Hello {name}!";
+            return $"Hello {name}!"
         }
 
         /// <summary>

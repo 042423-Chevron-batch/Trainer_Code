@@ -5,4 +5,4 @@
 3. Configure a CI/CD pipeline to deploy this TemplateApi project to Azure App Service
 
 ## Optional
-set up a CI pipeline to make sure your hangman project builds every time you push to main
+set up another CI pipeline to make sure your hangman project builds every time you push to main

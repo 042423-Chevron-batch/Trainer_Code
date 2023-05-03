@@ -12,7 +12,7 @@ on:
   
 jobs:
 # This is a job that grabs ubuntu VM and runs "echo 'Hello, World!'"
-  greet:
+  build:
     runs-on: ubuntu-latest
     env:
       WORKING_DIR: WorkoutTracker
@@ -30,7 +30,7 @@ jobs:
       run: dotnet test ${{ env.WORKING_DIR}}/Tests
   another_job:
     runs-on: windows-latest
-    needs: greet
+    needs: build
     steps:
     - name: run some powershell
-      run: List-ChildItem
+      run: Get-ChildItem

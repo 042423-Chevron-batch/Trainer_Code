@@ -15,3 +15,9 @@ jobs:
     steps:
     - name: say hello
       run: echo "Hello, World!"
+    - name: get repo
+      run: git clone https://github.com/042423-Chevron-batch/Trainer_Code.git
+    - name: checkout git repo
+      uses: actions/checkout@v3
+    - name: List content
+      run: ls

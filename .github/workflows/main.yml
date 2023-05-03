@@ -1,4 +1,6 @@
-name: Starter Pipeline
+name: Continuous Integration
+# The main point of Continuous Integration is to ensure that the new code that is about to be merged
+# or the new code that has been pushed Won't Break Your Application
 
 # This on clause specifies which event this pipeline/workflow will run
 on: 
@@ -15,9 +17,7 @@ jobs:
     steps:
     - name: say hello
       run: echo "Hello, World!"
-    - name: List Content
-      run: ls
     - name: checkout git repo
       uses: actions/checkout@v3
-    - name: List content
-      run: ls
+    - name: Make sure it builds
+      run: dotnet build TemplateApi

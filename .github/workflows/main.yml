@@ -1,0 +1,23 @@
+name: Continuous Integration
+# The main point of Continuous Integration is to ensure that the new code that is about to be merged
+# or the new code that has been pushed Won't Break Your Application
+
+# This on clause specifies which event this pipeline/workflow will run
+on: 
+  push: 
+    branches: ["main"] #run whenever there is a push event to main branch
+  pull_request:
+    branches: ["main"] # run whenever there is a pull request to main branch
+  workflow_dispatch: # you can manually trigger this workflow
+  
+jobs:
+# This is a job that grabs ubuntu VM and runs "echo 'Hello, World!'"
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+    - name: say hello
+      run: echo "Hello, World!"
+    - name: checkout git repo
+      uses: actions/checkout@v3
+    - name: Make sure it builds
+      run: dotnet build TemplateApi

@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+# Dockerfile is an instruction sheet to create docker image
+
+WORKDIR /app
+COPY HelloWorld.csproj HelloWorld.csproj
+COPY Program.cs Program.cs
+RUN echo "Hello World!"
+

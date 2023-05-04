@@ -6,4 +6,3 @@ Take one of your interactive applications such as Hangman or shellscript project
 2. Build the image from dockerfile with the name your-dockerhub-username/image-name:tag-name
 3. Push the image to docker hub
 4. Ask one of your peers to pull your image and see if they can run it
-

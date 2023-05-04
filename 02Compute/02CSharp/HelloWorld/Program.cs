@@ -74,6 +74,8 @@ string upperBoundInput = Console.ReadLine();
 // Parse the string to integer
 int upperBound = int.Parse(upperBoundInput);
 
+Fizzbuzz(upperBound);
+
 //methods
 void Fizzbuzz(int n) {
     for(int i = 1; i <= n; i++) {

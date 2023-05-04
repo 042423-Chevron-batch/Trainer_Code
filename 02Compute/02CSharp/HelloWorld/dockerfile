@@ -1,8 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0
 # Dockerfile is an instruction sheet to create docker image
 
-# Update the apt-get and install dotnet sdk
-
 # Copy over the source code
 WORKDIR /app
 COPY HelloWorld.csproj HelloWorld.csproj

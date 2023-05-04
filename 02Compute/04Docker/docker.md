@@ -58,7 +58,7 @@ Docker is a containerization platform that allows developers to package their ap
 - the above two commands are the same for containers as well
     - `docker container ls`
     - `docker container rm container-id`
-- when in doubt, `docker resource-name --help`
+- when in doubt, `docker resource-name command-name --help`
 - To download image from docker hub
     - `docker pull image-name`
 - To upload image to docker hub

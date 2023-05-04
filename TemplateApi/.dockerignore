@@ -1,0 +1,3 @@
+# like gitignore, but for dockerfile
+bin
+obj

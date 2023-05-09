@@ -1,4 +1,5 @@
-﻿namespace DatatypesDemo;
+﻿using System;
+namespace DatatypesDemo;
 class Program
 {
     static void Main(string[] args)
@@ -8,11 +9,12 @@ class Program
         string? input = Console.ReadLine();
 
         // box the string
-        object? obj = input;
+        // boxing is when you encapsulate a value into an object type.
+        // object? obj = input;
 
         //call a method to see what datatype the value is
-        object ret = GetMyStringValue(obj!);
-        Console.WriteLine($"The returned value is {ret}.");
+        // string? ret = (string)GetMyStringValue(obj!);// 
+        // Console.WriteLine($"The returned value is {ret}.");
 
 
         // now lets convert to get a value
@@ -21,6 +23,12 @@ class Program
 
     }
 
+    /// <summary>
+    /// this method takes an object and checks what the underlying datatype is. 
+    /// Then it takes action base on the underlying datatype,
+    /// </summary>
+    /// <param name="y"></param>
+    /// <returns></returns>
     public static object GetMyStringValue(object y)
     {
         if (y is int)
@@ -33,7 +41,7 @@ class Program
         else if (y is string)
         {
             string yy = (string)y;
-            yy += y;
+            yy += y;// yy = yy + y; this include IMPLICIT unboxing of the string
             return yy;
         }
         return y;
@@ -44,7 +52,7 @@ class Program
     /// </summary>
     /// <param name="s"></param>
     /// <returns></returns>
-    static object DeciferTheValue(string s)
+    static object DeciferTheValue(string s)// s is a parameter of the method
     {
         int i;
         double d;
@@ -53,29 +61,26 @@ class Program
 
         if (Int32.TryParse(s, out i))
         {
-            string ss = "this value is an integer";
-            object obj = ss;
-            return ss;
-        }
-        else if (Double.TryParse(s, out d))
-        {
-            string ss = "this value is a double";
+            string ss = $"this value is an integer ->{i}";
             object obj = ss;
             return ss;
         }
         else if (Int64.TryParse(s, out l))
         {
-            string ss = "this value is a long";
+            string ss = $"this value is a long -> {l}";
+            object obj = ss;
+            return ss;
+        }
+        else if (Double.TryParse(s, out d))
+        {
+            string ss = $"this value is a double -> {d}";
             object obj = ss;
             return ss;
         }
         else
         {
-            return "seats taken.";
+            return "seats taken - It's  string (or null).";
         }
 
     }
-
-
-
 }

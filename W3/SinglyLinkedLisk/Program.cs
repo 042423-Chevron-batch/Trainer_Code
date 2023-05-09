@@ -4,11 +4,12 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        // Console.WriteLine("Hello, World!");
 
         // add some nodes
         SingleyLinkedList sll = new SingleyLinkedList();
 
+        sll.AddToFront("Jane", "Eare");
         sll.AddToFront("1Mark", "1Moore");
         sll.AddToFront("2Mark", "2Moore");
         sll.AddToFront("3Mark", "3Moore");
@@ -18,7 +19,7 @@ internal class Program
 
         foreach (Person p in lp)
         {
-            Console.WriteLine($"{p.Fname} {p.Lname}");
+            Console.WriteLine($"The name of the dude is => {p.Fname} {p.Lname}");
         }
 
 

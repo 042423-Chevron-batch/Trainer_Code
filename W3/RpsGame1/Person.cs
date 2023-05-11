@@ -18,7 +18,7 @@ namespace RpsGame1
 
         //field
         public readonly int age = 0;
-        public Guid PersonId { get; set; } = new Guid();// when you create a property with a setter, C# creates a private backing variable of the same name for you. YOu don't see it.
+        public Guid PersonId { get; set; } = Guid.NewGuid();// when you create a property with a setter, C# creates a private backing variable of the same name for you. YOu don't see it.
 
         private string fname;
         public string Fname

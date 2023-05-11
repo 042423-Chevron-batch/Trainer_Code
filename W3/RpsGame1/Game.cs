@@ -7,8 +7,8 @@ namespace RpsGame1
 {
     public class Game
     {
-        public List<Round> Rounds { get; set; } = new List<Round>();
         public DateTime GameDate { get; set; } = DateTime.Now;
+        public List<Round> Rounds { get; set; } = new List<Round>();
 
 
 

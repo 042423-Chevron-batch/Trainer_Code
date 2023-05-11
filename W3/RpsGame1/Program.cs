@@ -1,4 +1,7 @@
-﻿namespace RpsGame1;
+﻿using System.Text.Json;
+using System;
+
+namespace RpsGame1;
 class Program
 {
     static void Main(string[] args)
@@ -21,6 +24,7 @@ class Program
         Random rand = new Random();
         Console.WriteLine($"Hey there. Please enter your first name followed by you last name followed by your age.");
         string? names = Console.ReadLine();
+        Person comp = new Person("Inac", "atharvard", 77);
 
         // divide the string delimited by a space
         string[] personDataArr = names!.Split(' ');
@@ -30,6 +34,7 @@ class Program
         Choices userChoiceEnum;
 
         // create the game classe.
+        List<Game> games = new List<Game>();
         Game game = new Game();
 
         // start the rounds
@@ -101,7 +106,6 @@ class Program
             {
                 player = new Person(personDataArr[0], personDataArr[1], personAge);
             }
-            Person comp = new Person("Inac", "atharvard", 77);
 
 
             // compare the results with the computers hard-coded choice.
@@ -155,5 +159,62 @@ class Program
             roundNum++;
         }
 
-    }
-}
+        // give a switch statement for a menu
+        Console.WriteLine($" Congratulations, {personDataArr[0]}, You completed a game. Would you like to save it? YES or NO");
+        string? savebool = Console.ReadLine();
+
+        switch (savebool)
+        {
+            case "YES":
+                //do the saving to the file.
+                //Console.WriteLine($"This is the YES statement");
+                if (!File.Exists("GameStorage.txt"))
+                {
+                    // File.Create("GameStorage.txt");
+                    // if empty, save the game to a List<Game> and write to the file.
+                    List<Game> gameAsList = new List<Game>();
+                    gameAsList!.Add(game);// '!' means that I know that the variable my be null. I want to DEREFERENCE it anyway
+                    string gameSerialized = JsonSerializer.Serialize(gameAsList);
+                    // write the serialized list of games ot the file.
+                    File.WriteAllText("GameStorage.txt", gameSerialized);
+                }
+                else
+                {
+                    // read from the file into ta string
+                    string gameText = File.ReadAllText("GameStorage.txt");
+                    // convert the game into a list
+                    // '?' means that I know that the value I an ASSIGNING to this variable may be null. I want to do it anyway.
+                    List<Game>? gameList = JsonSerializer.Deserialize<List<Game>>(gameText);
+
+                    // add the current game to the List<Game>
+                    gameList!.Add(game);// '!' means that I know that the variable my be null. I want to DEREFERENCE it anyway
+
+                    // serialize the List<Game> as Json
+                    string gameSerialized = JsonSerializer.Serialize(gameList);
+
+                    // write the serialized list of games ot the file.
+                    File.WriteAllText("GameStorage.txt", gameSerialized);
+                    // }
+                }
+                Console.WriteLine($"Thanks for playing. Your game was saved. Quitting the game.");
+                break;
+            case "NO":
+                Console.WriteLine($"Quitting the game.");
+                break;
+
+                // default:
+                //     Console.WriteLine($"The default value was tripped.");
+                //     break;
+        }
+
+
+        // save the game to a file.
+        // serialized the game object
+        //string gameSerialized = JsonSerializer.Serialize(game);
+        // Console.WriteLine(gameSerialized);
+
+        // write the JSON string to the file.
+        //File.WriteAllText("GameStorage.txt", gameSerialized);
+
+    }// EoM
+}// EoP

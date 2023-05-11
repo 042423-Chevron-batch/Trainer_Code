@@ -31,7 +31,7 @@ namespace RpsGame1
             {
                 if (value.Length > 4)
                 {
-                    throw new FormatException();// TODO find out why this exception didn't crash the program
+                    throw new FormatException("You need to format the name correctly. No more than 4 chars!");// TODO find out why this exception didn't crash the program
                 }
                 else
                 {

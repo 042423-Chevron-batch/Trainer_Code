@@ -1,4 +1,6 @@
-﻿namespace RpsGame1;
+﻿using System.Text.Json;
+
+namespace RpsGame1;
 class Program
 {
     static void Main(string[] args)
@@ -17,6 +19,25 @@ class Program
         // {
         //     Console.WriteLine($"The persons name is {pp.Fname} {pp.Lname} who is {pp.age} years old.");
         // }
+        List<Game>? gameInfo = new List<Game>();// declare the game List
+        if (File.Exists("GameRecord.txt"))
+        {
+            string gameInfoJSON = File.ReadAllText("GameRecord.txt");
+            if (!gameInfoJSON.Equals(""))
+            {
+                gameInfo = JsonSerializer.Deserialize<List<Game>>(gameInfoJSON);
+                foreach (Game g in gameInfo!)
+                {
+                    Console.WriteLine($"The date of the game is => {g.GameDate}");
+                    int roundNumber = 1;
+                    foreach (Round r in g.Rounds)
+                    {
+                        Console.WriteLine($"The winner of round {roundNumber} was {r.RoundWinner.Fname} with a choice of {r.RoundWinnerChoice}");
+                        roundNumber++;
+                    }
+                }
+            }
+        }
 
         Random rand = new Random();
         Console.WriteLine($"Hey there. Please enter your first name followed by you last name followed by your age.");
@@ -66,17 +87,17 @@ class Program
             if (userChoice.Equals("R"))
             {
                 userChoiceEnum = 0;
-                Console.WriteLine($"The users choise R is => {userChoiceEnum}");
+                Console.WriteLine($"The users choice R is => {userChoiceEnum}");
             }
             else if (userChoice.Equals("P"))
             {
                 userChoiceEnum = (Choices)1;
-                Console.WriteLine($"The users choise P is => {userChoiceEnum}");
+                Console.WriteLine($"The users choice P is => {userChoiceEnum}");
             }
             else
             {
                 userChoiceEnum = (Choices)2;
-                Console.WriteLine($"The users choise S is => {userChoiceEnum}");
+                Console.WriteLine($"The users choice S is => {userChoiceEnum}");
             }
 
             // the while-loop version of the above loop.
@@ -95,11 +116,11 @@ class Program
 
             // create the player and game Person objects
             //int personAge = 0;
-            bool successfulAgeConversion = Int32.TryParse(personDataArr[0], out int personAge);
+            bool successfulAgeConversion = Int32.TryParse(personDataArr[2], out int personAge);
             Person? player = null;
             if (successfulAgeConversion)
             {
-                player = new Person(personDataArr[1], personDataArr[2], personAge);
+                player = new Person(personDataArr[0], personDataArr[1], personAge);
             }
             Person comp = new Person("Inac", "atharvard", 77);
 
@@ -135,7 +156,7 @@ class Program
             {// tie
                 Console.WriteLine($"Close!! {personDataArr[0]}, bruh... It was a tie.");
                 ties++;
-                Round r = new Round(null!, null!);
+                Round r = new Round(new Person() { Fname = "tie" }, new Person() { Fname = "tie" });
                 r.RoundLoserChoice = userChoiceEnum;
                 r.RoundWinnerChoice = compChoiceEnum;
                 game.Rounds.Add(r);
@@ -154,6 +175,10 @@ class Program
             Console.WriteLine($"The winner of round {roundNum} was {r.RoundWinner.Fname} with a choice of {r.RoundWinnerChoice}");
             roundNum++;
         }
+
+        gameInfo.Add(game);
+        string gameJSON = JsonSerializer.Serialize(gameInfo);
+        File.WriteAllText("GameRecord.txt", gameJSON);
 
     }
 }

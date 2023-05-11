@@ -66,17 +66,17 @@ class Program
             if (userChoice.Equals("R"))
             {
                 userChoiceEnum = 0;
-                Console.WriteLine($"The users choise R is => {userChoiceEnum}");
+                Console.WriteLine($"The users choice R is => {userChoiceEnum}");
             }
             else if (userChoice.Equals("P"))
             {
                 userChoiceEnum = (Choices)1;
-                Console.WriteLine($"The users choise P is => {userChoiceEnum}");
+                Console.WriteLine($"The users choice P is => {userChoiceEnum}");
             }
             else
             {
                 userChoiceEnum = (Choices)2;
-                Console.WriteLine($"The users choise S is => {userChoiceEnum}");
+                Console.WriteLine($"The users choice S is => {userChoiceEnum}");
             }
 
             // the while-loop version of the above loop.
@@ -95,11 +95,11 @@ class Program
 
             // create the player and game Person objects
             //int personAge = 0;
-            bool successfulAgeConversion = Int32.TryParse(personDataArr[0], out int personAge);
+            bool successfulAgeConversion = Int32.TryParse(personDataArr[2], out int personAge);
             Person? player = null;
             if (successfulAgeConversion)
             {
-                player = new Person(personDataArr[1], personDataArr[2], personAge);
+                player = new Person(personDataArr[0], personDataArr[1], personAge);
             }
             Person comp = new Person("Inac", "atharvard", 77);
 
@@ -135,7 +135,7 @@ class Program
             {// tie
                 Console.WriteLine($"Close!! {personDataArr[0]}, bruh... It was a tie.");
                 ties++;
-                Round r = new Round(null!, null!);
+                Round r = new Round(new Person() { Fname = "tie" }, new Person() { Fname = "tie" });
                 r.RoundLoserChoice = userChoiceEnum;
                 r.RoundWinnerChoice = compChoiceEnum;
                 game.Rounds.Add(r);

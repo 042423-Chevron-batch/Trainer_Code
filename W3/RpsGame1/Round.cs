@@ -19,8 +19,8 @@ namespace RpsGame1
         public Person RoundWinner { get; set; }
         public Person RoundLoser { get; set; }
 
-        public Choices RoundWinnerChoice { get; set; }
-        public Choices RoundLoserChoice { get; set; }
+        public Choices? RoundWinnerChoice { get; set; }
+        public Choices? RoundLoserChoice { get; set; }
 
 
     }

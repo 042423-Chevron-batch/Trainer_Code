@@ -48,7 +48,7 @@ class Program
                 {
                     Console.WriteLine($"Hey, {player.Fname}. Please follow instructions. I said enter an \"R\", a \"P\", or an \"S\" for Rock, Paper, or Scissors.");
                 }
-                userChoice = RPS_GamePlay.ValidateUserInput(Console.ReadLine()!);// what happens if the string is null?
+                userChoice = RPS_GamePlay.ValidateUserInput(Console.ReadLine()!);// TODO check return of htis method. should be X
                 wrong++;
             } while (userChoice == null);
 

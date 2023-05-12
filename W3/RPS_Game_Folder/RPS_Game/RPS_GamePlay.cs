@@ -1,14 +1,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
+[assembly: InternalsVisibleTo("Tests.RPS_Game")]
 namespace RpsGame1
 {
     internal class RPS_GamePlay
     {
         public static Person Comp { get; set; } = new Person("Inac", "atharvard", 77);
         private static Random rand = new Random();
+
+        /// <summary>
+        /// This method takes an int and a double and returns a string concatenation of them 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static string TestDemoMethod(int x, double y)
+        {
+            string ret = $"{x} {y}";
+            return ret;
+        }
+
 
 
         /// <summary>
@@ -19,8 +34,15 @@ namespace RpsGame1
         public static Person RegisterPlayer(string x)
         {
             string[] xx = x.Split(' ');
-            Int32.TryParse(xx[2], out int xx1);
-            return new Person(xx[0], xx[1], xx1);
+
+            if (Int32.TryParse(xx[2], out int xx1))
+            {
+                return new Person(xx[0], xx[1], xx1);
+            }
+            else
+            {
+                return new Person(xx[0], xx[1], 111);
+            }
         }
 
         public static Choices GetRandomChoice()
@@ -31,8 +53,8 @@ namespace RpsGame1
 
         /// <summary>
         /// send a string R, P, or S, and receive the equivalent Choices type in return.
-        /// THe method evaluates the first element in the string.
-        /// If the char does not correlate, the method returns 'X'
+        /// The method evaluates the first element in the string.
+        /// If the char does not correlate, the method returns null
         /// </summary>
         /// <returns></returns>
         public static Choices? ValidateUserInput(string st)

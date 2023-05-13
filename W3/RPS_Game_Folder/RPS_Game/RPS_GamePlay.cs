@@ -9,6 +9,7 @@ namespace RpsGame1
 {
     internal class RPS_GamePlay
     {
+        private static List<Game> AllGames { get; set; } = new List<Game>();
         public static Person Comp { get; set; } = new Person("Inac", "atharvard", 77);
         private static Random rand = new Random();
 
@@ -24,6 +25,19 @@ namespace RpsGame1
             return ret;
         }
 
+        /// <summary>
+        /// This method takes the 
+        /// </summary>
+        /// <param name="RoundWinner"></param>
+        /// <param name="RoundLoser"></param>
+        /// <param name="RoundWinnerChoice"></param>
+        /// <param name="RoundLoserChoice"></param>
+        /// <returns></returns>
+        public static Round RecordRound(Person RoundWinner, Person RoundLoser, Choices? RoundWinnerChoice, Choices? RoundLoserChoice)
+        {
+            Round r = new Round(RoundWinner, RoundLoser, RoundWinnerChoice, RoundLoserChoice);
+            return r;
+        }
 
 
         /// <summary>

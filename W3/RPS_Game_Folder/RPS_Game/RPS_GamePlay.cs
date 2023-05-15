@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
+
+// this is a business layer class
 [assembly: InternalsVisibleTo("Tests.RPS_Game")]
 namespace RpsGame1
 {

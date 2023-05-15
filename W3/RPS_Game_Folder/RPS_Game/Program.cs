@@ -2,6 +2,9 @@
 using System;
 
 namespace RpsGame1;
+
+
+//this is equivalent to the website
 class Program
 {
     static void Main(string[] args)

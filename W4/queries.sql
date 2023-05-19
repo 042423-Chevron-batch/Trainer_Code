@@ -105,3 +105,42 @@ EXEC GetEmployeesWithTitleSubString 'Sales', @res OUTPUT;
 Select @res AS HowManyRows;
 
 DROP Procedure GetEmployeesWithTitleSubString;
+
+
+--TRIGGERS
+CREATE TABLE Customer_Audits
+(
+ChangeId INT IDENTITY PRIMARY KEY,
+CustomerId INT NOT NULL,
+FirstName NVARCHAR(255),
+LastName NVARCHAR(255),
+LastOrderDate DATETIME2,
+Remarks NVARCHAR(255),
+UpdatedAt DATETIME2 NOT NULL,
+Operation CHAR(3) NOT NULL,
+CHECK(Operation = 'INS' or Operation = 'DEL')
+);
+
+CREATE TRIGGER WhenCustomerInsertedOrDeleted
+ON [dbo].[Customers]
+AFTER INSERT, DELETE
+AS
+BEGIN
+	SET NOCOUNT ON;
+-- insert in to the storage table for review
+	INSERT INTO Customer_Audits (CustomerId,FirstName,LastName,LastOrderDate,Remarks,UpdatedAt,Operation)
+	-- get the only item (if there is one) from the inserted table
+	SELECT CustomerId,FirstName,LastName,LastOrderDate,Remarks,GETDATE(),'INS' 
+	FROM inserted
+	--union all will take hte 2 tables (with the same columns) and combine them
+	UNION ALL
+	-- get the only item (if there is one) from the deleted table
+	SELECT CustomerId,FirstName,LastName,LastOrderDate,Remarks,GETDATE(),'DEL' 
+	FROM deleted
+END
+
+
+SELECT * FROM Customers;
+INSERT INTO Customers (FirstName,LastName,LastOrderDate,Remarks) VALUES ('Denzel','Washington',CAST('2012-07-04'AS DATETIME2),'This guy deserves an Oscar');
+--CAST('2012-07-04T01:01:01.1234567 -07:00'AS DATETIME2),
+SELECT TOP (1000) * FROM [dbo].[Customer_Audits]

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marks HTML Demo</title>
+  <link rel="stylesheet" href="mystyles.css">
+  <style>
+    /* internal styling */
+    #image1 {
+      width: 50%;
+      ;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="background-color:blue">
+
+    <p>this <b>bold is</b> a new p</p>
+    <p>this is <span style="background-color:green">this is a span</span> a new p</p>
+  </div>
+  <!-- inline styling -->
+  <span style="background-color:green">
+    <em>this is a new line</em>
+  </span>this is more text
+  <!-- the major attributes are id and class
+  'id' can be used for only one element inside a web page.
+    'class' can be applied to any/all element(s) on a page or throught the app. 
+-->
+  <h1 class="c1 c2 c3" id="id1">This is a class attribute demo.</h1>
+  <h2 class="c1 c2 c3" id="id1">This is a class attribute demo.</h2>
+  <h3 class="c1 c2 c3" id="id1">This is a class attribute demo.</h3>
+  <h4 class="c1 c2 c3" id="id1">This is a class attribute demo.</h4>
+  <h5 class="c1 c2 c3" id="id1">This is a class attribute demo.</h5>
+  <h6 class="c1 c2 c3" id="id1">This is a class attribute demo.</h6>
+
+  <img src="./images/img_0053.jpg" id="image1" alt="There should be an image here."></br>
+  <div><a href="http://www.revature.com" target="_blank">This is a link!</a></div>more text
+
+  <!-- ordered and unordered lists -->
+  <ol>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>item 4</li>
+      <li>item 5</li>
+    </ul>
+  </ol>
+  <ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+  </ul>
+
+  <!-- tables -->
+  <table>
+    <thead>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>age</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td1">Mark</td>
+        <td>Moore</td>
+        <td>43</td>
+      </tr>
+      <tr>
+        <td>Arely</td>
+        <td>Moore</td>
+        <td>40</td>
+      </tr>
+      <tr>
+        <td>Maya</td>
+        <td>Moore</td>
+        <td>3</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- forms -->
+  <div>
+    <h3>This is your registration form!</h3>
+  </div>
+  <form action="formSubmitted()" method="POST">
+    <label for="fnid">First Name:</label>
+    <input type="text" name="FirstName" id="fnid" value="jimmy" required readonly><br>
+    <label for="lnid">Last Name:</label>
+    <input type="text" name="LastName" id="lnid" placeholder="NEWTRON" autofocus><br>
+    <label for="checkbox">Are you happy?</label>
+    <input type="checkbox" name="chkbx" id="checkbox">
+    <input type="color" name="color" id="color">
+
+    <br><button type="submit">Submit Button</button>
+    <br><label for="sl">Do you believe that the grinch &#8925; the Who's??</label>
+    <select name="selectlist1" id="sl">
+      <option value="1">YES</option>
+      <option value="2">No</option>
+      <option value="3">Maybe</option>
+    </select>
+    <!-- <select name="selectlist2" id="sl">
+      <option value="1">YES</option>
+      <option value="2">No</option>
+      <option value="3">Maybe</option>
+    </select> -->
+
+
+
+  </form>
+
+
+  <script src="MyJs.js"></script>
+</body>
+
+</html>

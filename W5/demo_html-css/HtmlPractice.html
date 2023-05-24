@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="mystyles.css">
   <style>
     /* internal styling */
+    .c1 {
+      background-color: darkblue;
+    }
+
     #image1 {
       width: 50%;
       ;
@@ -30,7 +34,7 @@
   'id' can be used for only one element inside a web page.
     'class' can be applied to any/all element(s) on a page or throught the app. 
 -->
-  <h1 class="c1 c2 c3" id="id1">This is a class attribute demo.</h1>
+  <h1 class="c1 c2 c3" id="id1" style="background-color:pink">This is a class attribute demo.</h1>
   <h2 class="c1 c2 c3" id="id1">This is a class attribute demo.</h2>
   <h3 class="c1 c2 c3" id="id1">This is a class attribute demo.</h3>
   <h4 class="c1 c2 c3" id="id1">This is a class attribute demo.</h4>
@@ -93,7 +97,7 @@
   <div>
     <h3>This is your registration form!</h3>
   </div>
-  <form action="formSubmitted()" method="POST">
+  <form onsubmit="formSubmitted(event, FirstName.value);">
     <label for="fnid">First Name:</label>
     <input type="text" name="FirstName" id="fnid" value="jimmy" required readonly><br>
     <label for="lnid">Last Name:</label>

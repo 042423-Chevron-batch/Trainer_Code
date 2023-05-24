@@ -52,7 +52,6 @@ namespace RpsApiModels
         public string Lname { get; set; }// this is a "property"
         public string Email { get; set; }
 
-        //TODO add a speak method to inherit
 
     }
 }

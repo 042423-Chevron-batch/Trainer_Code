@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rps_API", "Rps_API\Rps_API.csproj", "{42450879-937A-47E0-B7AE-1174CFBDC565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rps_Business", "Rps_Business\Rps_Business.csproj", "{D2AA98A1-842D-4772-ADD3-CDA2846BBD72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rps_Repository", "Rps_Repository\Rps_Repository.csproj", "{0E3207CA-5B1F-4409-82AF-FD499905E86C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rps_Models", "Rps_Models\Rps_Models.csproj", "{B7A11594-839B-4C65-8F1E-4C06A66CF26D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42450879-937A-47E0-B7AE-1174CFBDC565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42450879-937A-47E0-B7AE-1174CFBDC565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42450879-937A-47E0-B7AE-1174CFBDC565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42450879-937A-47E0-B7AE-1174CFBDC565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2AA98A1-842D-4772-ADD3-CDA2846BBD72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2AA98A1-842D-4772-ADD3-CDA2846BBD72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2AA98A1-842D-4772-ADD3-CDA2846BBD72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2AA98A1-842D-4772-ADD3-CDA2846BBD72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E3207CA-5B1F-4409-82AF-FD499905E86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E3207CA-5B1F-4409-82AF-FD499905E86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E3207CA-5B1F-4409-82AF-FD499905E86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E3207CA-5B1F-4409-82AF-FD499905E86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A11594-839B-4C65-8F1E-4C06A66CF26D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A11594-839B-4C65-8F1E-4C06A66CF26D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A11594-839B-4C65-8F1E-4C06A66CF26D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A11594-839B-4C65-8F1E-4C06A66CF26D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

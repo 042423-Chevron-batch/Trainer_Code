@@ -39,18 +39,18 @@ namespace Rps_Models
         }
 
         [Required]
-        [StringLength(20, MinimumLength = 3, ErrorMessage = "You messed up the Username")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "The {0} length must be between {2} and {1}.")]
         public string UserName { get; set; }
         [Required]
         [StringLength(20, MinimumLength = 3)]
         public string Password { get; set; }
 
         [Required]
-        [StringLength(20, MinimumLength = 3)]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "The {0} length must be between {2} and {1}.")]
         public string FirstName { get; set; }
 
         [Required]
-        [StringLength(20, MinimumLength = 3)]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "The {0} length must be between {2} and {1}.")]
         public string LastName { get; set; }// this is a "property"
 
         public string Remarks { get; set; }

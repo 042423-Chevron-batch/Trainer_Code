@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Rps_Models;
 
-namespace Rps_Business
+namespace Rps_Models
 {
     public class Mapper
     {
@@ -13,7 +13,7 @@ namespace Rps_Business
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        internal static Person RegisterDtoToPerson(RegisterDto dto)
+        public static Person RegisterDtoToPerson(RegisterDto dto)
         {
             return new Person(dto.FirstName, dto.LastName, dto.LastOrderDate, dto.Remarks, dto.UserName, dto.Password);
         }

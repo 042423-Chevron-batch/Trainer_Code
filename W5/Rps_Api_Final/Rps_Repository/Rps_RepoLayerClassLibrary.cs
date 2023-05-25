@@ -12,6 +12,13 @@ namespace Rps_Repository
 
         private static SqlConnection flubby { get; set; } = new SqlConnection("Server=tcp:022223-batch-server.database.windows.net,1433;Initial Catalog=022223-batch-db;Persist Security Info=False;User ID=batch-022223;Password=2peachtrees!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
+        /// <summary>
+        /// takes the username and password of a user and returns an instance of hte user Person obj.
+        /// of no user exists, returns null.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public Person GetUserByUnamePword(string userName, string password)
         {
             // check to see if thise username/password combo is in the Db.
@@ -19,11 +26,11 @@ namespace Rps_Repository
             comm.Parameters.AddWithValue("@username", userName);
             comm.Parameters.AddWithValue("@password", password);
             flubby.Open();
-            Person? p = null;
+            Person? p = null;// create the person obj
             SqlDataReader res;
             try
             {
-                res = comm.ExecuteReader();
+                res = comm.ExecuteReader();// envoke the query
                 if (res.Read())
                 {
                     p = new Person(res.GetGuid(0), res.GetString(1), res.GetString(2), res.GetDateTime(3), res.GetString(4), res.GetString(5), res.GetString(6));

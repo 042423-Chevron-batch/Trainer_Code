@@ -97,16 +97,17 @@
   <div>
     <h3>This is your registration form!</h3>
   </div>
-  <form onsubmit="formSubmitted(event, FirstName.value);">
+  <form onsubmit="formSubmitted(event, LastName.value);">
+    <br><button type="submit">Submit Button</button>
     <label for="fnid">First Name:</label>
     <input type="text" name="FirstName" id="fnid" value="jimmy" required readonly><br>
+
     <label for="lnid">Last Name:</label>
     <input type="text" name="LastName" id="lnid" placeholder="NEWTRON" autofocus><br>
     <label for="checkbox">Are you happy?</label>
     <input type="checkbox" name="chkbx" id="checkbox">
     <input type="color" name="color" id="color">
 
-    <br><button type="submit">Submit Button</button>
     <br><label for="sl">Do you believe that the grinch &#8925; the Who's??</label>
     <select name="selectlist1" id="sl">
       <option value="1">YES</option>

@@ -46,5 +46,26 @@ namespace Rps_API.Controllers
             // if something failed, return a message detailing the failure.
             return BadRequest(new { message = "There was a problem with the new registration" });
         }
-    }
-}
+
+        [HttpGet("login/username/password")]
+        public ActionResult<Person> Login(string username, string password = "not a string!!")
+        {
+            //create an instance of the business layer
+            BusinessLayerClassLibrary rpsb = new BusinessLayerClassLibrary();
+            // send the loginDto to the business layer to do whatever it does.
+            Person p = rpsb.Login(username, password);
+            if (p == null)
+            {
+                return BadRequest(new { message = "There is not yet a user with that login/password combo." });
+            }
+            else
+            {
+                return Ok(p);
+            }
+        }
+
+
+
+
+    }// EoC
+}// EoN

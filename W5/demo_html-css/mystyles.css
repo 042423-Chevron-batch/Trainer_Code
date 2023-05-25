@@ -1,13 +1,50 @@
+/* this is external styling */
 .c1 {
   background-color: lightblue;
 }
 
+/* choose a id */
 #id1 {
   font-style: italic;
 }
 
+/* choose a class */
 .td1 {
   background-color: aqua;
 }
 
-/* this is external styling */
+/* concatenation */
+h2.c3 {
+  border-style: solid;
+  border-width: 100px;
+  border-color: blueviolet;
+  padding: 20px 20px 20px 20px;
+}
+
+/* *:visited {
+  background-color: black;
+} */
+
+h3.c2:hover {
+  background-color: brown;
+  color: white;
+  border-width: 10;
+  border-color: fuchsia;
+  padding: 20px 20px 20px 20px;
+}
+
+/* textarea::before {
+  background-color: brown;
+} */
+
+div>p {
+  background-color: green;
+}
+
+div+h1 {
+  background-color: gray;
+}
+
+div~h2 {
+  color: rg
+}

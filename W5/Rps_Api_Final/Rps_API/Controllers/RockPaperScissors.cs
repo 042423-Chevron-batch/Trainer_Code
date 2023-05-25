@@ -22,8 +22,8 @@ namespace Rps_API.Controllers
         }
 
         // we will add another method
-        [HttpPost("Register/")]// define what verb this action method requires
-        public ActionResult<Person> GetMyInt([FromBody] Person x)// get a json string object from the body and match it to the defined class.
+        [HttpPost("Register")]// define what verb this action method requires
+        public ActionResult<Person> GetMyInt([FromBody] RegisterDto x)// get a json string object from the body and match it to the defined class.
         {
 
             if (ModelState.IsValid)
@@ -32,7 +32,10 @@ namespace Rps_API.Controllers
                 // i'll call a method on the business layer that will do the appropriate thing with the Person object.
                 // I will return the  unputted person back to the user along with the URI to GET the person entity so it can be used, if the FE wants to use it.
                 Person ret = rpsb.Register(x);
-
+                if (ret != null)
+                {
+                    return Created("url/path/to/this/resource", ret);
+                }
 
                 // string ret = String.Concat(x.Fname, " ", x.Lname, "is", x.age, "years old. His email is ", x.Email, ".");
                 // string ret1 = $"{x.Fname} {x.Lname} is {x.age} years old. His email is {x.Email}.";

@@ -13,6 +13,35 @@ namespace Rps_Repository
         private static SqlConnection flubby { get; set; } = new SqlConnection("Server=tcp:022223-batch-server.database.windows.net,1433;Initial Catalog=022223-batch-db;Persist Security Info=False;User ID=batch-022223;Password=2peachtrees!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
         /// <summary>
+        /// Get a list of all the stores. This doesn not include the inventory.
+        /// </summary>
+        /// <returns></returns>
+        public List<Store> GetStores()
+        {
+            SqlCommand comm = new SqlCommand("SELECT * FROM Stores;", flubby);
+            flubby.Open();
+            List<Store> stores = new List<Store>();// create the person obj
+            SqlDataReader res;
+            try
+            {
+                res = comm.ExecuteReader();// envoke the query
+                while (res.Read())
+                {
+                    stores.Add(new Store { StoreId = res.GetGuid(0), Name = res.GetString(1), Address = res.GetString(2) });
+                }
+                flubby.Close();
+                return stores!;
+            }
+            catch (SqlException ex)
+            {
+                // write this exception to a file, exception.
+                Console.WriteLine($"the exception was {ex.Message} - {ex.InnerException}");
+                flubby.Close();
+                return stores;// in the business layer, we will check to see if the list length is 0. if 0, there was an error.
+            }
+        }
+
+        /// <summary>
         /// takes the username and password of a user and returns an instance of hte user Person obj.
         /// of no user exists, returns null.
         /// </summary>
@@ -93,6 +122,43 @@ namespace Rps_Repository
                 Console.WriteLine($"the exception was {ex.Message} - {ex.InnerException}");
                 flubby.Close();
                 return 0;
+            }
+        }
+
+        /// <summary>
+        /// this method uses the store id to retrieve allthe store data including it's inventory.
+        /// </summary>
+        /// <param name="storeId"></param>
+        /// <returns></returns>
+        public Store StoreInfo(Guid storeId)
+        {
+            SqlCommand comm = new SqlCommand("SELECT * FROM Stores LEFT JOIN StoreProductJunction WHERE StoreId = @storeId", flubby);
+            comm.Parameters.AddWithValue("@storeId", storeId);
+            flubby.Open();
+            Store? s = null;// create the person obj
+            SqlDataReader res;
+            try
+            {
+                res = comm.ExecuteReader();// envoke the query
+                if (res.Read())
+                {
+                    p = new Person(res.GetGuid(0), res.GetString(1), res.GetString(2), res.GetDateTime(3), res.GetString(4), res.GetString(5), res.GetString(6));
+                }
+                flubby.Close();
+                return p!;
+            }
+            catch (SqlException ex)
+            {
+                // write this exception to a file, exception.
+                Console.WriteLine($"the exception was {ex.Message} - {ex.InnerException}");
+                flubby.Close();
+                return p!;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"the exception was {ex.Message} - {ex.InnerException}");
+                flubby.Close();
+                return p!;
             }
         }
 

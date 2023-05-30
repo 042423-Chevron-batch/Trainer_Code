@@ -9,6 +9,23 @@ namespace Rps_Business
 {
     public class BusinessLayerClassLibrary
     {
+        public List<Store> GetStores()
+        {
+            Rps_RepoLayerClassLibrary repo = new Rps_RepoLayerClassLibrary();
+
+            List<Store> stores = repo.GetStores();
+
+            if (stores.Count > 0)
+            {
+                return stores;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         public Person Login(string username, string password)
         {
             Rps_RepoLayerClassLibrary repo = new Rps_RepoLayerClassLibrary();
@@ -46,5 +63,12 @@ namespace Rps_Business
             return null;
         }
 
+        public Store StoreInfo(Guid storeId)
+        {
+            Rps_RepoLayerClassLibrary repo = new Rps_RepoLayerClassLibrary();
+            Store s = repo.StoreInfo(storeId);
+            if (s != null) return s;
+            else return null;
+        }
     }
 }

@@ -79,9 +79,30 @@ console.log(y9);
 y13 = 21;
 
 // == comparison with "type coersion"
-let y14 = "2345"
+let y14 = "2345"// A SINGLE '=' IS FOR ASSIGNMENT
 let y15 = 2345;
-console.log(y14 == y15);
+console.log(y14 == y15);// the double '==' will do automatic type "coersion" to see if the values COULD be equal if type conversion was done on them.
+
+//create 2 objects with the same properties but different values.
+let mark1 = {
+  fname: 'Mark',
+  lname: 'Moore',
+  age: 43
+}
+
+let mark2 = {
+  fname: 'Mark',
+  lname: 'Moore',
+  age: 43
+}
+
+let mark3 = mark1;
+console.log(`Is Mark1 the same as Mark2? => ${mark1 === mark2}`);
+
+mark3.age = 44;
+console.log(`Ther value of age in mark1 ${mark1.age} and mark3 ${mark3.age}`);
+
+
 
 let y16 = 1000000000n;
 let y17 = 1000000000;
@@ -123,8 +144,8 @@ let mark = {
 console.log(mark);// print mark Object
 let marStr = JSON.stringify(mark);
 console.log(marStr);// print mark Object
-let mark1 = JSON.parse(marStr);
-console.log(mark1);// print mark Object
+let mark11 = JSON.parse(marStr);
+console.log(mark11);// print mark Object
 
 
 // JS flow control statements
@@ -338,6 +359,91 @@ localStorage.setItem(2684837475891, 1);
 localStorage.setItem(2684837475892, 3);
 localStorage.setItem(2684837475894, 5);
 localStorage.setItem(2684837475895, 1);
+
+// DAY 2
+// classes are considered "special functions"
+function myObj(fn, ln, age) {
+  return {
+    firstName: fn,
+    lastname: ln,
+    age: age
+  }
+}
+
+let obj2 = myObj('Mark', 'moore', 43);
+let obj3 = myObj('Bethany', 'Weaver', 39);
+
+console.log(obj2.firstName);
+console.log(obj3.firstName);
+
+obj2.address = '100 SW. Main Trail.';
+console.log(obj3.firstName);
+console.log(obj2.address);
+console.log(obj3.address);
+console.log(typeof obj2);
+console.log(typeof obj3);
+
+let animal = class {
+  constructor(color, exteriorType) {
+    color = color;
+    exteriorType = exteriorType
+  }
+}
+
+//let anim1 = new animal('blue', 'fur');
+animal.color = 'blue';
+console.log(animal.color);
+
+//Animal1 is the 'super' (parent) class of Wolf class.
+class Animal1 {
+  constructor(color, exteriorType) {
+    this.color = color;
+    this.exteriorType = exteriorType
+  }
+  speak() {
+    return `This animal has ${this.color} ${this.exteriorType}.`;
+  }
+}
+
+let myAnimal1 = new Animal1('green', 'scales');
+let moleRat = new Animal1('grey', 'skin');
+
+console.log(myAnimal1.speak());
+console.log(moleRat.speak());
+
+class Wolf extends Animal1 {
+  constructor(color, exteriorType) {
+    super(color, exteriorType);
+    //this.species = species;
+  }
+  set setspecies(value) {
+    this.species = value;
+  }
+}
+
+let WhiteFang = new Wolf('grey', 'fur');
+WhiteFang.setspecies = 'Canid';
+
+console.log(`The animal is a ${WhiteFang.species} that has ${WhiteFang.color} ${WhiteFang.exteriorType}`);
+
+
+let myId = document.getElementById("id1");
+// console.log(document);
+// console.log(myDoc);
+console.log(myId.innerHTML);
+console.log(myId.innerText);
+
+let myname = 'Theodore';
+myId.innerText = `This is ${myname}'s change`;
+
+// <li>item 5</li>
+let myOl = document.getElementsByTagName("ol");
+let myNewLi = document.createElement("li");
+myNewLi.textContent = "marks new item. He's so smart.";
+myOl[0].appendChild(myNewLi);
+
+
+
 
 
 

@@ -32,10 +32,7 @@ namespace Rps_API.Controllers
                 // i'll call a method on the business layer that will do the appropriate thing with the Person object.
                 // I will return the  unputted person back to the user along with the URI to GET the person entity so it can be used, if the FE wants to use it.
                 Person ret = rpsb.Register(x);
-                if (ret != null)
-                {
-                    return Created("url/path/to/this/resource", ret);
-                }
+                if (ret != null) return Created("url/path/to/this/resource", ret);
 
                 // string ret = String.Concat(x.Fname, " ", x.Lname, "is", x.age, "years old. His email is ", x.Email, ".");
                 // string ret1 = $"{x.Fname} {x.Lname} is {x.age} years old. His email is {x.Email}.";
@@ -48,7 +45,7 @@ namespace Rps_API.Controllers
         }
 
         [HttpGet("login/username/password")]
-        public ActionResult<Person> Login(string username, string password = "not a string!!")
+        public ActionResult<Person> Login(string username, string password = "no password sent. :(")
         {
             //create an instance of the business layer
             BusinessLayerClassLibrary rpsb = new BusinessLayerClassLibrary();
@@ -58,10 +55,42 @@ namespace Rps_API.Controllers
             {
                 return BadRequest(new { message = "There is not yet a user with that login/password combo." });
             }
-            else
+            else return Ok(p);
+        }
+
+        /// <summary>
+        /// This method gets a list of all stores in the system
+        /// Inventory is not included for each store.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("stores")]
+        public ActionResult<List<Store>> Stores()
+        {
+            // create an instance of the business layer class.
+            BusinessLayerClassLibrary rpsb = new BusinessLayerClassLibrary();
+            // call the business layer method to get the stores.
+            List<Store> stores = rpsb.GetStores();
+
+            if (stores != null) return Ok(stores);
+            else return StatusCode(422, new { message = "There was a problem fetching the stores list. Please try again." });
+        }
+
+
+        [HttpGet("stores/storeId")]
+        public ActionResult<Store> StoreInfo(Guid storeId)
+        {
+            BusinessLayerClassLibrary rpsb = new BusinessLayerClassLibrary();
+
+            if (ModelState.IsValid)
             {
-                return Ok(p);
+                Store s = rpsb.StoreInfo(storeId);
+                if (s != null)
+                {
+                    return Ok(s);
+                }
+
             }
+
         }
 
 

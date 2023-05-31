@@ -27,7 +27,7 @@ namespace Rps_Repository
                 res = comm.ExecuteReader();// envoke the query
                 while (res.Read())
                 {
-                    stores.Add(new Store { StoreId = res.GetGuid(0), Name = res.GetString(1), Address = res.GetString(2) });
+                    stores.Add(new Store(res.GetGuid(0), res.GetString(1), res.GetString(2)));
                 }
                 flubby.Close();
                 return stores!;
@@ -132,7 +132,7 @@ namespace Rps_Repository
         /// <returns></returns>
         public Store StoreInfo(Guid storeId)
         {
-            SqlCommand comm = new SqlCommand("SELECT * FROM Stores LEFT JOIN StoreProductJunction WHERE StoreId = @storeId", flubby);
+            SqlCommand comm = new SqlCommand("SELECT s.StoreId, s.Name, s.Address, p.ProductId, p.Name,p.Description, spj.Quantity FROM [dbo].[Stores] s LEFT JOIN [dbo].[StoreProductJunction] spj ON s.StoreId = spj.StoreId LEFT JOIN [dbo].[Products] p ON spj.ProductId = p.ProductId WHERE s.StoreId = @storeId;", flubby);
             comm.Parameters.AddWithValue("@storeId", storeId);
             flubby.Open();
             Store? s = null;// create the person obj
@@ -141,24 +141,40 @@ namespace Rps_Repository
             {
                 res = comm.ExecuteReader();// envoke the query
                 if (res.Read())
-                {
-                    p = new Person(res.GetGuid(0), res.GetString(1), res.GetString(2), res.GetDateTime(3), res.GetString(4), res.GetString(5), res.GetString(6));
+                {//get the store data and send it to the Mapper
+                    s = Mapper.AdoToStore(res.GetGuid(0), res.GetString(1), res.GetString(2));
+                    do
+                    {// a do/while loop will run at least once.
+                        //Console.WriteLine($"the values are {res.GetGuid(3)} {res.GetString(4)} {res.GetInt32(6)} {res.GetString(5)}");
+                        Guid id = res.GetGuid(3);
+                        string name = res.GetString(4);
+                        int q = res.GetInt32(6);
+                        string desc = res.GetString(5);
+                        Product p = Mapper.AdoToProduct(id, name, q, desc);
+                        s.Inventory?.Add(p);
+
+										} while (res.Read());
+                    flubby.Close();
+                    return s!;
                 }
-                flubby.Close();
-                return p!;
+                else
+                {
+                    flubby.Close();
+                    return s!;
+                }
             }
             catch (SqlException ex)
             {
                 // write this exception to a file, exception.
                 Console.WriteLine($"the exception was {ex.Message} - {ex.InnerException}");
                 flubby.Close();
-                return p!;
+                return s!;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"the exception was {ex.Message} - {ex.InnerException}");
                 flubby.Close();
-                return p!;
+                return s!;
             }
         }
 

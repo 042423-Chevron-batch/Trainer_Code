@@ -75,7 +75,11 @@ namespace Rps_API.Controllers
             else return StatusCode(422, new { message = "There was a problem fetching the stores list. Please try again." });
         }
 
-
+        /// <summary>
+        /// this endpoint takes a storeId and returns that stores information along with the stores inventory
+        /// </summary>
+        /// <param name="storeId"></param>
+        /// <returns></returns>
         [HttpGet("stores/storeId")]
         public ActionResult<Store> StoreInfo(Guid storeId)
         {
@@ -90,7 +94,7 @@ namespace Rps_API.Controllers
                 }
 
             }
-
+            return StatusCode(422, new { message = "There was a problem fetching the stores inventory or it has no inventory. Please try again." });
         }
 
 

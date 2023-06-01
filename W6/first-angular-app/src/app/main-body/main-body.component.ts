@@ -15,6 +15,7 @@ interface CatImg {
 export class MainBodyComponent implements OnInit, OnDestroy {
 
   // This is constructor for this class
+  // Dependency injection happens here
   constructor(private http: HttpClient) { }
 
   // Lifecycle hooks- This particular method, gets called whenever the componet loads for the first time

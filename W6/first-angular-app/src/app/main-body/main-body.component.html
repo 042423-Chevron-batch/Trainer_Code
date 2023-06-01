@@ -24,3 +24,11 @@ Show is : {{show}}
     <!-- Attribute binding -->
     <button [disabled]="formInvalid">Submit</button>
 </div>
+
+<button (click)="makeHttpRequest()">Get me a cat</button>
+
+<div *ngFor="let cat of cats">
+    <!-- Pipe is used to transform data to different format -->
+    {{cat | json}}
+    <img [src]="cat.url" alt="cat image">
+</div>

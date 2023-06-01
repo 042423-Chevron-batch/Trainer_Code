@@ -31,6 +31,12 @@ Directives bring programmatic functionality to html
 2. Event Binding: `(eventName)="eventListener"`
 3. Attribute Binding: `[attribute]="propertyName"`
 
+## Making Http Requests
+- Angular provides HttpClient class (which lives in HttpClientModule) for making http calls, these return Observables, which you have to subscribe to.
+
+## Lifecycle Hooks
+- Components go through different life stages (from Initialization to Destory) and you can "hook" onto any of those stages to insert your own logic
+
 ## Services
 - *Services* are reusable pieces of *logic*. They don't have views associated to them!
 - Use services for:

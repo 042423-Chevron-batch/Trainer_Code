@@ -25,8 +25,12 @@ Show is : {{show}}
     <button [disabled]="formInvalid">Submit</button>
 </div>
 
-<button (click)="makeHttpRequest()">Get me a cat</button>
 
+<form #numberofcats>
+    <input (change)="showFormControl()" type="number" name="num-cats" id="num-cats" [formControl]="numofCats">
+    <button [disabled]="numofCats.invalid" (click)="makeHttpRequest(numofCats.value)">Get me a cat</button>
+    <span *ngIf="numofCats.invalid">The number has to be between 1 and 10</span>
+</form>
 <div *ngFor="let cat of cats">
     <!-- Pipe is used to transform data to different format -->
     {{cat | json}}

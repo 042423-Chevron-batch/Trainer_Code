@@ -37,6 +37,10 @@ Directives bring programmatic functionality to html
 ## Lifecycle Hooks
 - Components go through different life stages (from Initialization to Destory) and you can "hook" onto any of those stages to insert your own logic
 
+## Forms
+Angular has two types of forms: Template based and Reactive forms. Template based form is suitable for simple forms, and most of form logic lives in the template (aka html). Reactive form scales better because your data control and logic lives in your typescript class.
+
+
 ## Services
 - *Services* are reusable pieces of *logic*. They don't have views associated to them!
 - Use services for:

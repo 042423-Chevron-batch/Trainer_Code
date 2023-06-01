@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormControl, Validators } from '@angular/forms';
 
 interface CatImg {
   height: number,
@@ -21,7 +22,7 @@ export class MainBodyComponent implements OnInit, OnDestroy {
   // Lifecycle hooks- This particular method, gets called whenever the componet loads for the first time
   // This is great place to do any data fetching before you load the component
   ngOnInit(): void {
-    this.makeHttpRequest();
+    this.makeHttpRequest(1);
   }
 
   ngOnDestroy(): void {
@@ -40,10 +41,14 @@ export class MainBodyComponent implements OnInit, OnDestroy {
   }
 
   formInvalid : boolean = false;
+  numofCats : FormControl = new FormControl(1, [Validators.required, Validators.min(1), Validators.max(10)]);
   cats : CatImg[] = [];
+  showFormControl() : void {
+    console.log(this.numofCats);
+  }
 
-  makeHttpRequest() : void {
-    this.http.get<CatImg[]>("https://api.thecatapi.com/v1/images/search?limit=10").subscribe((response) => {
+  makeHttpRequest(numCats : number) : void {
+    this.http.get<CatImg[]>(`https://api.thecatapi.com/v1/images/search?limit=${numCats}`).subscribe((response) => {
       this.cats = response;
     })
   }

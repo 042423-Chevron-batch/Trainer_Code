@@ -1,2 +1,26 @@
-<h1>This is Main Body Component!</h1>
-<p>Whenever you see app-main-body tag, this html page and associated logic/style will be inserted in place of the tag</p>
+<div>Main Body</div>
+<!-- String Interpolation -->
+<h1>{{greet}}</h1>
+<h3>Today is {{today}}</h3>
+
+<!-- ngFor structural directive gives us ability to iterate over a collection-->
+<div *ngFor="let prod of products">
+    <h2>{{prod}}</h2>
+</div>
+
+<!-- ngIf is another structural directive -->
+<div *ngIf="show else notShow">
+    We are showing this snippet of html
+</div>
+<ng-template #notShow>
+    <div>This appears when show is false</div>
+</ng-template>
+Show is : {{show}}
+
+<!-- Event binding in angular -->
+<button (click)="toggleShow()">Toggle Show</button>
+
+<div>
+    <!-- Attribute binding -->
+    <button [disabled]="formInvalid">Submit</button>
+</div>

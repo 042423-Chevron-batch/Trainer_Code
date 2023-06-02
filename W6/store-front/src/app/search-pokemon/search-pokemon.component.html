@@ -1,0 +1,25 @@
+<form (submit)="searchPokemon()">
+    <div>
+      <label for="poke-name">Pokemon Name<span style="color: red">*</span></label>
+      <input type="text" name="poke-name" id="poke-name" [formControl]="pokeName">
+    </div>
+    <input type="submit" value="Submit">
+    <div *ngIf="pokeName.touched && !pokeName.pristine">
+      <span *ngIf="pokeName.errors && pokeName.errors['required']" style="color: red">Pokemon Name is required</span>
+    </div>
+  </form>
+  
+  <h1>{{pokemon?.name | uppercase}}</h1>
+  <img [src]="pokemon?.sprites?.front_default" alt="pokemon's default front sprite">
+  <dl>
+    <dt>Weight</dt>
+    <dd>{{pokemon?.weight}}</dd>
+  </dl>
+  <dl *ngFor="let pokeType of pokemon?.types; let i = index ">
+    <dt>Type {{i + 1}}</dt>
+    <dd>{{pokeType.type.name}}</dd>
+  </dl>
+  <dl *ngFor="let pokeStat of pokemon?.stats">
+    <dt>{{pokeStat.stat.name}}</dt>
+    <dd>{{pokeStat?.base_stat}}</dd>
+  </dl>

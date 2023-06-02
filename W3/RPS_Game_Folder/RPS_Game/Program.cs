@@ -11,7 +11,7 @@ class Program
     {
         // Random rand = new Random();
         Console.WriteLine($"Hey there. Please enter your first name followed by you last name followed by your age.");
-        string userResponse = Console.ReadLine();
+        string? userResponse = Console.ReadLine();
         Person player = RPS_GamePlay.RegisterPlayer(userResponse!);
         Person comp = RPS_GamePlay.Comp;
         int winsUser = 0;// FE

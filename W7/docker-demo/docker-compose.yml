@@ -1,0 +1,25 @@
+services:
+  api1:
+    image: sanitycheck
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    container_name: sanitycheck1
+    volumes:
+      - sanitycheck://var//lib//docker//volumes//sanitycheck//_data
+      # - secondVol:path//to//the//volume
+    ports:
+      - "3000:5158"
+  api2:
+    image: sanitycheck
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    container_name: sanitycheck2
+    volumes:
+      - sanitycheck://var//lib//docker//volumes//sanitycheck//_data
+    ports:
+      - "3001:5158"
+
+volumes:
+  sanitycheck:

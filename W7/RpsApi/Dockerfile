@@ -11,7 +11,7 @@ ENV ASPNETCORE_URLS=http://+:5158
 # stage 2
 # bring in the sdk and give it an alias (build)
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-# change the wriking directory
+# change the working directory
 WORKDIR /src
 #copy the .csproj from outside the container to inside and src directory inside the container.
 COPY ["docker-demo.csproj", "./"]

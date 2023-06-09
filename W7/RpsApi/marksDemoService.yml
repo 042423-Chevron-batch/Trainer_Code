@@ -1,0 +1,13 @@
+apiVersion: v1 # REQUIRED - there can be only one........
+kind: Service # REQUIRED - what is this file doing?
+metadata: # REQUIRED - data about the object
+  name: k8sdemo3-service # REQUIRED - the name of the service
+spec: # secification of the service
+  selector:
+    rps: rps-template # the labels fo teh pods that this service selects.
+    # app: marksapp # the service will look for pods with all labels listed here. If the pod has only one of these labels, the pod isn't selected. If the pod has these labels and some additional labels, it will still be selected.
+  ports: # port mapping
+    - port: 3000 # external sends to this port
+      targetPort: 5158 # the service maps to this port that the container is listening to.
+      protocol: 'TCP'
+  type: LoadBalancer # this is a loadbalancer service.

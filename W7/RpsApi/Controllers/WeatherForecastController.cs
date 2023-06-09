@@ -70,6 +70,9 @@ public class WeatherForecastController : ControllerBase
         // }
     }
 
-
-
+    [HttpGet("duplicate/x")]
+    public ActionResult<string> DuplicateMyString(string x)
+    {
+        return x;
+    }
 }

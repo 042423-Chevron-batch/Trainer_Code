@@ -1,0 +1,18 @@
+
+apiVersion: apps/v1 # REQUIRED - app/v1 is the most current version of k8s
+kind: Deployment  # REQUIRED - you must declare that this is a service, deployment, job, cronjob, etc...
+metadata: # REQUIRED - give information about the deployment
+  name: k8sdemo3-declarative # REQUIRED - gives the deployment a name so th at it can be manipulated later. 
+spec: # gives the configuration of the cluster
+  replicas: 3 # we will have a default number of pods runnign at all times.
+  selector: # this is a field that is used for tying together the pods and the cluster 
+    matchLabels:
+      rps: rps-template #put the label of the pod here.
+  template: # this configures the pods
+    metadata: # info about the pods
+      labels: # how to identify the pod
+        rps: rps-template #the label of all pods creaed in the spec below
+    spec: # configures the containers
+      containers: # an array of containers
+        - name: rps-pod #name of the pod
+          image: markmooredocker/batch52423:k8sdemo3 # where the pod is.
